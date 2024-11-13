@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Caesar Cipher</title>
+</head>
+<body>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+    margin-left: 15%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    color: #333;
+    font-size: 16px;
+}
+.container-form{
+    padding: 5px 20px  40px 0 ;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+    </style>
+    <div class="container">
+        <h1>Caesar Cipher</h1>
+        <div class="container-form">
+        <form method="POST">
+            <label for="shift">Jumlah Pergeseran:</label>
+            <input type="number" id="shift" name="shift" value="{{ shift }}" min="1" max="25"><br><br>
+
+            <label for="plaintext">Masukkan Plainteks:</label><br>
+            <textarea id="plaintext" name="plaintext" rows="4" cols="50">{{ plaintext }}</textarea><br><br>
+
+
+            <button type="submit" name="action" value="encrypt">Enkripsi</button>
+            <button type="submit" name="action" value="decrypt">Dekripsi</button>
+        </form>
+
+        {% if result %}
+            <h2>Hasil:</h2>
+            <p class="result">{{ result }}</p>
+        {% endif %}
+    </div>
+    </div>
+</body>
+</html>
